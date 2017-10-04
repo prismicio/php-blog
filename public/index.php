@@ -5,6 +5,9 @@ require_once '../app/LinkResolver.php';
 require_once '../app/includes/PrismicHelper.php';
 require_once '../config.php';
 
+// Set the default timezone
+date_default_timezone_set('Europe/Paris');
+
 // If the prismic API url needs to be updated, show a message to go through the quickstart
 if (PRISMIC_URL == 'https://your-repo-name.prismic.io/api') {
   include '../app/includes/templates/firstrun.php';

@@ -4,7 +4,7 @@ This is a sample blog template in PHP with content managed in prismic.io (an API
 
 #### Getting started
 
-Read [this guide](https://prismic.io/docs/examples/blog#?lang=php) for instructions to create your repository and use the sample blog.
+Read [this guide](https://intercom.help/prismicio/examples/php-samples/sample-blog-with-api-based-cms-in-php) for instructions to create your repository and use the sample blog.
 
 #### Deploy your PHP blog
 
@@ -47,7 +47,7 @@ $ heroku open
 
 This software is licensed under the Apache 2 license, quoted below.
 
-Copyright 2013 Zengularity (http://www.zengularity.com).
+Copyright 2017 Prismic.io (http://www.prismic.io).
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this project except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
 

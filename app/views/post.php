@@ -43,7 +43,7 @@ $isBloghome = false;
         break;
       
       // Image slice
-      case "image-with-caption":
+      case "image_with_caption":
         include 'slices/image.php';
         break;
       

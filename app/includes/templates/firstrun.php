@@ -13,7 +13,7 @@
   <body>
     <div class="home">
       <h1>You're almost there!</h1>
-      <p>Follow the instructions on the <a href="https://prismic.io/docs/examples/blog#?lang=php" target="_blank" style="text-decoration: underline;">example blog page</a> to get started</p>
+      <p>Follow the instructions on the <a href="https://intercom.help/prismicio/examples/php-samples/sample-blog-with-api-based-cms-in-php" target="_blank" style="text-decoration: underline;">example blog page</a> to get started</p>
     </div>
   </body>
 </html>
