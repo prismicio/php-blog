@@ -24,8 +24,11 @@ $app->get('/{route:|blog|blog/}', function ($request, $response) use ($app, $pri
 
   // Query the API for the homepage content and all the posts
   $api = $prismic->get_api();
-  $bloghomeContent = $api->getSingle('bloghome');
-  $posts = $api->query(Predicates::at("document.type", "post"));
+  $bloghomeContent = $api->getSingle('blog_home');
+  $posts = $api->query(
+    Predicates::at("document.type", "post"),
+    [ 'orderings' => '[my.post.date desc]']
+  );
   
   // If there is no bloghome content, display 404 page
   if ( $bloghomeContent == null ) {

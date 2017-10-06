@@ -1,5 +1,5 @@
 <div class='post-part single container'>
   <div>
-    <?= $slice->getValue()->asHtml() ?>
-    </div>
+    <?= $slice->getPrimary()->getStructuredText('text')->asHtml() ?>
+  </div>
 </div>
