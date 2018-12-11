@@ -46,7 +46,6 @@ $app->get('/{route:|blog|blog/}', function ($request, $response) use ($app, $pri
 $app->get('/{route:preview|preview/}', function ($request, $response) use ($app, $prismic) {
   $token = $request->getParam('token');
   $url = $prismic->get_api()->previewSession($token, $prismic->linkResolver, '/');
-  setcookie(Prismic\PREVIEW_COOKIE, $token, time() + 1800, '/', null, false, false);
   return $response->withStatus(302)->withHeader('Location', $url);
 });
 
