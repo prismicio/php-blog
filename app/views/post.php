@@ -1,9 +1,11 @@
 <?php
+use Prismic\LinkResolver;
+use Prismic\Dom\RichText;
 
 $prismic = $WPGLOBAL['prismic'];
 $post = $WPGLOBAL['post'];
 
-$title = $post->getText('post.title');
+$title = RichText::asText($post->data->title);
 $isBloghome = false;
 
 ?>
@@ -17,20 +19,19 @@ $isBloghome = false;
       <a href="./">back to list</a>
     </div>
     
-    <h1 data-wio-id=<?= $post->getId() ?>>
-      <?= $post->getText('post.title') ? $post->getText('post.title') : "Untitled" ?>
+    <h1 data-wio-id=<?= $post->id ?>>
+      <?= RichText::asHtml($post->data->title, $prismic->linkResolver) ?>
     </h1>
   </div>
   
   <?php 
   
-  $sliceZone = $post->getSliceZone('post.body') ? $post->getSliceZone('post.body')->getSlices() : (object) array();
-  
-  //- Render the right markup for a given slice type.      
-  foreach ( $sliceZone as $slice ) {
-    
+  // Get the slices present in the document
+  $slices = $post->data->body;
+
+  foreach ( $slices as $slice ) {
     // Render the right markup for a given slice type
-    switch ($slice->getSliceType()) {
+    switch ($slice->slice_type) {
       
       // Text slice
       case "text":

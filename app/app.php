@@ -17,6 +17,7 @@ use Prismic\Api;
 use Prismic\LinkResolver;
 use Prismic\Predicates;
 
+
 require_once 'includes/http.php';
 
 // Index page
@@ -37,7 +38,7 @@ $app->get('/{route:|blog|blog/}', function ($request, $response) use ($app, $pri
   }
   
   // Render the homepage
-  render($app, 'bloghome', array('bloghome' => $bloghomeContent, 'posts' => $posts->getResults()));
+  render($app, 'bloghome', array('bloghome' => $bloghomeContent, 'posts' => $posts->results));
   
 });
 

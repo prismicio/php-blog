@@ -1,5 +1,6 @@
+<?php use Prismic\Dom\RichText; ?>
 <div class='post-part single container'>
   <span class='block-quotation'>
-    <?= $slice->getPrimary()->getStructuredText('quote')->asText() ?>
+    <?= RichText::asText($slice->primary->quote) ?>
   </span>
 </div>
