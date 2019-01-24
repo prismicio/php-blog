@@ -20,7 +20,7 @@ $isBloghome = false;
     </div>
     
     <h1 data-wio-id=<?= $post->id ?>>
-      <?= RichText::asHtml($post->data->title, $prismic->linkResolver) ?>
+      <?= $title ?>
     </h1>
   </div>
   

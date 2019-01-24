@@ -19,7 +19,7 @@ $linkResolver = $prismic->linkResolver;
 
 <div class="home">
   <div class='blog-avatar' style='background-image: url("<?= $imageUrl ?>");'></div>
-  <h1 class='blog-title'><?= RichText::asHtml($bloghome->data->headline) ?></h1>
+  <h1 class='blog-title'><?= $title ?></h1>
   <p class='blog-description'><?= RichText::asText($bloghome->data->description) ?></p>
 </div>
 

@@ -3,12 +3,12 @@ use Prismic\Dom\RichText;
 
 // Get all the slices of the post
 $slices = $post->data->body;
-$firstParagraph = "";
+$firstText = "";
 
 // Loop through each slice to find the first text slice
 foreach ($slices as $slice) {
   if ($slice->slice_type == "text") {
-    $firstText = RichText::asHtml($slice->primary->text, $linkResolver);
+    $firstText = RichText::asText($slice->primary->text);
     break;
   }
 }

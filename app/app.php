@@ -17,7 +17,6 @@ use Prismic\Api;
 use Prismic\LinkResolver;
 use Prismic\Predicates;
 
-
 require_once 'includes/http.php';
 
 // Index page
