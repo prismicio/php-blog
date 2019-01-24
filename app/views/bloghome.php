@@ -1,13 +1,17 @@
 <?php
+use Prismic\LinkResolver;
+use Prismic\Dom\RichText;
+use Prismic\Dom\Date;
 
 $prismic = $WPGLOBAL['prismic'];
 $bloghome = $WPGLOBAL['bloghome'];
 $posts = $WPGLOBAL['posts'];
 
-$title = $bloghome->getText("blog_home.headline");
+$title = RichText::asText($bloghome->data->headline);
 $isBloghome = true;
 
-$imageUrl = $bloghome->getImage('blog_home.image') ? $bloghome->getImage('blog_home.image')->getUrl() : '';
+$imageUrl = $bloghome->data->image->url;
+$linkResolver = $prismic->linkResolver;
 
 ?>
 
@@ -16,23 +20,23 @@ $imageUrl = $bloghome->getImage('blog_home.image') ? $bloghome->getImage('blog_h
 <div class="home">
   <div class='blog-avatar' style='background-image: url("<?= $imageUrl ?>");'></div>
   <h1 class='blog-title'><?= $title ?></h1>
-  <p class='blog-description'><?= $bloghome->getText('blog_home.description') ?></p>
+  <p class='blog-description'><?= RichText::asText($bloghome->data->description) ?></p>
 </div>
 
 <div class="blog-main">
   <?php foreach ($posts as $post) { ?>
   
-  <div class="blog-post" data-wio-id=<?= $post->getId() ?>>
+  <div class="blog-post" data-wio-id=<?= $post->id ?>>
       <h2>
-        <a href="<?= $prismic->linkResolver->resolve($post) ?>">
-          <?= $post->getText('post.title') ?>
+        <a href="<?= $linkResolver->resolve($post) ?>">
+          <?= RichText::asHtml($post->data->title, $linkResolver) ?>
         </a>
       </h2>
       
       <p class="blog-post-meta">
-        <span class="created-at">
-          <?= $post->getDate("post.date") ? $post->getDate("post.date")->formatted('M d, Y') : "" ?>
-        </span>
+        <time class="created-at">
+          <?= Date::asDate($post->data->date)->format('M d, Y'); ?>
+        </time>
       </p>
       
       <?php include 'slices/firstParagraph.php'; ?>

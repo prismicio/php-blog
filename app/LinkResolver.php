@@ -18,11 +18,11 @@ class PrismicLinkResolver extends LinkResolver
     $this->prismic = $prismic;
   }
 
-  public function resolve($link)
+  public function resolve($link) :? string
   {
     // Post custom type
-    if ($link->getType() == 'post') {
-      return '/blog/' . $link->getUid();
+    if ($link->type === 'post') {
+      return '/blog/' . $link->uid;
     }
     
     // Default case returns the homepage

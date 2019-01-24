@@ -1,29 +1,29 @@
 <?php
+use Prismic\Dom\RichText;
 
 // Get all the slices of the post
-$sliceZone = $post->getSliceZone('post.body');
-$firstParagraph = "";
+$slices = $post->data->body;
+$firstText = "";
 
 // Loop through each slice to find the first text slice
-foreach ($sliceZone->getSlices() as $slice) {
-  if ($slice->getSliceType() == "text") {
-    $firstParagraph = $slice->getPrimary()->getStructuredText('text')->getFirstParagraph();
+foreach ($slices as $slice) {
+  if ($slice->slice_type == "text") {
+    $firstText = RichText::asText($slice->primary->text);
     break;
   }
 }
 
 // If a first paragraph was found display the paragraph with text limit
-if ($firstParagraph !== "") {
-  $firstParagraphInPost = $firstParagraph->getText();
+if ($firstText !== "") {
   $textLimit = 300;
-  $limitedText = substr($firstParagraphInPost, 0, $textLimit);
+  $limitedText = substr($firstText, 0, $textLimit);
 
   // If the first paragraph is longer than the limit, cut it down, respecting the end of the last word
-  if (strlen($firstParagraphInPost)> $textLimit) {
+  if (strlen($firstText)> $textLimit) {
     $lastSpaceIndex = strrpos($limitedText, ' ', -1);
     $limitedText = substr($limitedText, 0, $lastSpaceIndex);
     echo "<p>" . $limitedText . "...</p>";
   } else {
-    echo "<p>" . $firstParagraphInPost . "</p>";
+    echo "<p>" . $firstText . "</p>";
   }
 }
