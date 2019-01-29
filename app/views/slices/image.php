@@ -3,7 +3,7 @@ use Prismic\Dom\RichText;
 
 $imageWithCaption = $slice->primary;
         
-$imageUrl = $imageWithCaption->image->url;
+$imageUrl = !$imageWithCaption->image ? $imageWithCaption->image->url : '';
 $caption = $imageWithCaption->caption;
 
 switch ( $slice->slice_label ) {

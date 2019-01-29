@@ -10,7 +10,7 @@ $posts = $WPGLOBAL['posts'];
 $title = RichText::asText($bloghome->data->headline);
 $isBloghome = true;
 
-$imageUrl = $bloghome->data->image->url;
+$imageUrl = !$bloghome->data->image ? $bloghome->data->image->url : '';
 $linkResolver = $prismic->linkResolver;
 
 ?>
@@ -29,13 +29,13 @@ $linkResolver = $prismic->linkResolver;
   <div class="blog-post" data-wio-id=<?= $post->id ?>>
       <h2>
         <a href="<?= $linkResolver->resolve($post) ?>">
-          <?= RichText::asHtml($post->data->title, $linkResolver) ?>
+          <?= $post->data->title ? RichText::asHtml($post->data->title, $linkResolver) : '<h1>Untitled</h1>' ?>
         </a>
       </h2>
       
       <p class="blog-post-meta">
         <time class="created-at">
-          <?= Date::asDate($post->data->date)->format('M d, Y'); ?>
+          <?= $post->data->date ? Date::asDate($post->data->date)->format('M d, Y') : '' ?>
         </time>
       </p>
       
