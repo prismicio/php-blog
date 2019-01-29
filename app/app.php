@@ -31,7 +31,7 @@ $app->get('/{route:|blog|blog/}', function ($request, $response) use ($app, $pri
   );
   
   // If there is no bloghome content, display 404 page
-  if ( $bloghomeContent == null ) {
+  if (!$bloghomeContent || $bloghomeContent->data == new stdClass()) {
     not_found($app);
     return;
   }
