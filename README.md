@@ -1,35 +1,13 @@
-## Prismic & PHP Example Blog
+# Prismic & PHP Example Blog
 
 [PHP](https://www.php.net/) example blog project with content managed in [Prismic](https://prismic.io/)
 
 ## Check out the dedicated article to get this project up and running
 > [Prismic project guide](https://user-guides.prismic.io/en/articles/868735-sample-blog-with-api-based-cms-in-php)
 
-### 1. Install the prismic-cli
-```
-npm install -g prismic-cli
-```
-
-### 2. Run the theme command
-This will create a new Prismic content repository, setup the custom types, and install the project code
-```
-prismic theme --theme-url https://github.com/prismicio/php-blog --conf prismic-configuration.json
-```
-
-### 3. Update your repo name
-Open your config.php file and update your-repo-name with your repository name
-
-```
-define('PRISMIC_URL', 'https://your-repo-name.prismic.io/api/v2');
-```
-### 4. Run the project
-```
-composer install
-./serve.sh  
-```
-Then you can access it at [http://localhost:3000](http://localhost:3000).
 ## Learn more about using Prismic with PHP
 [Prismic PHP Documentation](https://prismic.io/docs/technologies/getting-started-php)
+
 ### Licence
 
 This software is licensed under the Apache 2 license, quoted below.
