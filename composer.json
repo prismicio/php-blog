@@ -1,5 +1,6 @@
 {
-  "name": "PHP Blog Example",
+  "name": "php-blog/example",
+  "description": "PHP blog sample with Prismic CMS",
   "version": "2.0",
   "require": {
     "php": ">=7.1",

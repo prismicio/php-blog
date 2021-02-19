@@ -1,53 +1,18 @@
-## Sample Blog with API-based CMS
+# Prismic & PHP Example Blog
 
-This is a sample blog template in PHP with content managed in prismic.io (an API-based CMS).
+[PHP](https://www.php.net/) example blog project with content managed in [Prismic](https://prismic.io/)
 
-#### Getting started
+## Check out the dedicated article to get this project up and running
+> [Prismic project guide](https://user-guides.prismic.io/en/articles/868735-sample-blog-with-api-based-cms-in-php)
 
-Read [this guide](https://intercom.help/prismicio/examples/php-samples/sample-blog-with-api-based-cms-in-php) for instructions to create your repository and use the sample blog.
-
-#### Deploy your PHP blog
-
-An easy way to deploy your blog is to use [Heroku](http://www.heroku.com). Just follow these few simple steps once you have successfully [signed up](https://id.heroku.com/signup/www-header) and [installed the Heroku toolbelt](https://toolbelt.heroku.com/):
-
-Create a new Heroku application
-
-```
-$ heroku create
-```
-
-Initialize a new Git repository:
-
-```
-$ git init
-$ heroku git:remote -a your-heroku-app-name
-```
-
-Commit your code to the Git repository and deploy it to Heroku:
-
-```
-$ git add .
-$ git commit -am "make it better"
-$ git push heroku master
-```
-
-Ensure you have at least one node running:
-
-```
-$ heroku ps:scale web=1
-```
-
-You can now browse your application online:
-
-```
-$ heroku open
-```
+## Learn more about using Prismic with PHP
+[Prismic PHP Documentation](https://prismic.io/docs/technologies/getting-started-php)
 
 ### Licence
 
 This software is licensed under the Apache 2 license, quoted below.
 
-Copyright 2017 Prismic.io (http://www.prismic.io).
+Copyright 2021 [Prismic.io](http://www.prismic.io).
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this project except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
 

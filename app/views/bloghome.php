@@ -10,7 +10,7 @@ $posts = $WPGLOBAL['posts'];
 $title = RichText::asText($bloghome->data->headline);
 $isBloghome = true;
 
-$imageUrl = !$bloghome->data->image ? $bloghome->data->image->url : '';
+$imageUrl = $bloghome->data->image ? $bloghome->data->image->url : '';
 $linkResolver = $prismic->linkResolver;
 
 ?>
